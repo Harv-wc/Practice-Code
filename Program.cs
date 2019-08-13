@@ -40,7 +40,7 @@ namespace ConsoleApplication1
             }
             return array;
         }
-        public string ToStringAction(int[] array) // still need to find a better way....
+        public string ToStringAction(int[] array) // still need to find a better way.... foreach(the stuff) Console.Write($"{num} ") -- I should start doing this instead.
         {
             string asString = "";
             foreach(int num in array) {
