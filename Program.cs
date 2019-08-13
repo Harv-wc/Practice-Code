@@ -13,26 +13,19 @@ namespace ConsoleApplication1
             Console.WriteLine($"Original Array: {DoMath.ToStringAction(arr)}");
             Console.WriteLine($"Sorted Squared Array: {DoMath.ToStringAction(DoMath.SortArray(DoMath.SquareArray(arr)))}");
 
-
-
-
             // PAUSE //
             Console.ReadLine();
         }
-       
     }
     
     class SortedSquare
     {
         public int[] SortArray(int[] array)
         {
-            for (int index = 0; index < array.Length; index++)
-            {
-                int temp = 0;
-                for(int nextIndex = index+1; nextIndex < array.Length; nextIndex++)
-                {
-                    if(array[nextIndex]<array[index])
-                    {
+            for (int index = 0; index < array.Length; index++) {
+                int temp;
+                for(int nextIndex = index+1; nextIndex < array.Length; nextIndex++){
+                    if(array[nextIndex]<array[index]) {
                         temp = array[index];
                         array[index] = array[nextIndex];
                         array[nextIndex] = temp;
@@ -41,27 +34,21 @@ namespace ConsoleApplication1
             }
             return array;
         }
-        public int[] SquareArray(int[] array)
-        {
-            
-            for (int index = 0; index < array.Length; index++)
-            {
+        public int[] SquareArray(int[] array) {
+            for (int index = 0; index < array.Length; index++){
                 array[index] = (array[index] * array[index]);
             }
             return array;
         }
-        public string ToStringAction(int[] array)
+        public string ToStringAction(int[] array) // still need to find a better way....
         {
             string asString = "";
-            foreach(int num in array)
-            {
+            foreach(int num in array) {
                 asString += (Convert.ToString(num) + " ");
             }
             return asString;
         }
-
-
     } //Given a sorted list of integers, square the elements and give the output in sorted order.
 
-    
+
 }
