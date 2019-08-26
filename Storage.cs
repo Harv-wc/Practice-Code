@@ -1,11 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Test_Environment
 {
     class Storage
     {
+        //##### STORAGE OF METHODS #####
+        //
+        //
+
         public void Menu()
         {
             // Change the number of menu items here
@@ -63,7 +68,6 @@ namespace Test_Environment
             Console.WriteLine(" 3. Quit Game");
             Console.WriteLine("****************************");
         }
-
         public void SortedSquareMethod()
         {
             SortedSquare DoMath = new SortedSquare { };
@@ -74,8 +78,6 @@ namespace Test_Environment
             // PAUSE //
             Console.ReadLine();
         } // Method for the Sort and Square stuff
-
-
         public static int MaxProfit()
         {
             int[] stocks = { 9, 11, 8, 5, 7, 10, 1, 2, 3, 4 };
@@ -93,9 +95,56 @@ namespace Test_Environment
             Console.WriteLine(profit);
             return profit;
         }// determine max profit attainable between one number and another after it
+        public static void Print(int[] arr)
+        {
+            for (int i = 0; i < arr.Length; i++)
+            {
+                Console.WriteLine($"position {i}: {arr[i]}");
+            }
+        }
+        private void LetterCount()
+        {
+            Console.Write("Enter a string to count the total number of characters: ");
+            string inputString = Console.ReadLine().ToLower().Replace(" ", "");
+            while (inputString.Length > 0)
+            {
+                int letterCount = (from letter in inputString where letter == inputString[0] select letter).Count();
+                Console.WriteLine($"{inputString[0]} has: {letterCount} {inputString}");
+                inputString = inputString.Replace($"{inputString[0]}", "");
+            }
+        }
+        public void SortArray(int[] arr)
+        {
+            //int[] arr = { 7, 4, 1, 3, 8, 5 };
+            int temp = 0;
+            for (int i = 0; i < arr.Length - 1; i++)
+            {
+                temp = arr[i];
+                for (int i2 = i; i2 < arr.Length - 1; i2++)
+                {
+                    if (temp > arr[i2])
+                    {
+                        temp = arr[i2];
+                    }
+                }
+                arr[i] = temp;
+            }
+        }
+        public void VowelCountMethod()
+        {
+            string value = "aa ee ii oo uu yy dd";
+            VowelCount MyWork = new VowelCount { };
+            Console.WriteLine(MyWork.Counter(value));
+        } // method for VowelCount
 
-
+        //
+        //
+        //##### STORAGE OF METHODS #####
     }
+
+    //##### STORAGE OF CLASSES #####
+    //
+    //
 
     class SortedSquare
     {
@@ -134,5 +183,27 @@ namespace Test_Environment
             return asString;
         }
     } //Given a sorted list of integers, square the elements and give the output in sorted order.
+    class VowelCount
+    {
+        public int Counter(string value)
+        {
+            int number = 0;
+            string vowels = "aeiou";
+            for (int i = 0; i < 5; i++)
+            {
+                foreach (char letter in value)
+                {
+                    if (vowels[0] == letter)
+                        number++;
+                }
+                vowels = vowels.Replace($"{value[0]}", "");
+            }
+            return number;
+        }
+    }// go through a string and count the number of vowels
 
+
+     //
+     //
+     //##### STORAGE OF CLASSES #####
 }
