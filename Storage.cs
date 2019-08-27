@@ -201,9 +201,23 @@ namespace Test_Environment
             return number;
         }
     }// go through a string and count the number of vowels
+    class CountNumberOfOddNumbers
+    {
+        public int CountOddForSum(int value)
+        {
+            int sum = 0;
+            int counter = 1;
+            for (int i = 0; i < value; i++)
+            {
+                sum += counter;
+                counter += 2;
+            }
+            return sum;
+        }
+    }// Write a method which takes an int X as input and returns the sum of the first X odd numbers. Given X = 4 Return 16 (1 + 3 + 5 + 7)
 
 
-     //
-     //
-     //##### STORAGE OF CLASSES #####
+    //
+    //
+    //##### STORAGE OF CLASSES #####
 }
