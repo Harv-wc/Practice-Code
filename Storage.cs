@@ -216,6 +216,21 @@ namespace Test_Environment
         }
     }// Write a method which takes an int X as input and returns the sum of the first X odd numbers. Given X = 4 Return 16 (1 + 3 + 5 + 7)
 
+    class RotateStrings
+    {
+        public string RotateRight(string value)
+        {
+            char holdValue = value[value.Length - 1];
+            for (int i = value.Length - 1; i >= 0; i--)
+            {
+                if (i == 0)
+                    value[0] = holdValue;
+            }
+
+            return value;
+        }
+    }
+
 
     //
     //
