@@ -215,21 +215,58 @@ namespace Test_Environment
             return sum;
         }
     }// Write a method which takes an int X as input and returns the sum of the first X odd numbers. Given X = 4 Return 16 (1 + 3 + 5 + 7)
-
-    class RotateStrings
+    class IntersectionStuff
     {
-        public string RotateRight(string value)
+        private void intersecting()
         {
-            char holdValue = value[value.Length - 1];
-            for (int i = value.Length - 1; i >= 0; i--)
+
+            List<int> p = new List<int>
             {
-                if (i == 0)
-                    value[0] = holdValue;
+                1,
+                3,
+                5,
+                7,
+                6
+            };
+            List<int> q = new List<int>
+            {
+                2,
+                4,
+                6,
+                3,
+                7
+            };
+            int numOfIntersectingLines = 0;
+            for (int i = 0; i < p.Count; i++)
+            {
+                for (int i2 = 0; i2 < p.Count; i2++)
+                {
+                    if (p[i] - q[i] != p[i2] - q[i2])
+                    {
+                        numOfIntersectingLines++;
+
+                    }
+                }
+            }
+            Console.WriteLine(numOfIntersectingLines);
+
+        }
+
+    } // incomp... Find the number of lines that intersect. Confine between y @ 0 -> 1...
+    class PermutateArray
+    {
+        public object[] Permutate(int[] pArr, object[] inArr)
+        {
+            object[] newArr = new object[inArr.Length];
+
+            for (int i = 0; i < inArr.Length; i++)
+            {
+                newArr[i] = inArr[pArr[i]];
             }
 
-            return value;
+            return newArr;
         }
-    }
+    }// re-order a given array of (anything) based on a given prmutation array.
 
 
     //
