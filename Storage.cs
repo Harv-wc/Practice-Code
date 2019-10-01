@@ -268,6 +268,52 @@ namespace Test_Environment
         }
     }// re-order a given array of (anything) based on a given prmutation array.
 
+    class RomanNumeral
+    {
+        /*Given a number in Roman Numeral format, convert it to a decimal. Assume that
+         * only one smaller roman numeral can prefic a larger one.
+         */
+
+        public int RomanNumVal(char romanNum)
+        {
+            switch (romanNum)
+            {
+                case 'I':
+                    return 1;
+                case 'V':
+                    return 5;
+                case 'X':
+                    return 10;
+                case 'L':
+                    return 50;
+                case 'C':
+                    return 100;
+                case 'D':
+                    return 500;
+                case 'M':
+                    return 100;
+                default:
+                    return 0;
+            }
+        }
+        public int RomanNumeralConversion(string input)
+        {
+            int numVal = 0;
+            for (int i = input.Length - 1; i >= 0; i--)
+            {
+                if (i != 0 && RomanNumVal(input[i]) > RomanNumVal(input[i - 1]))
+                {
+                    numVal = numVal + (RomanNumVal(input[i]) - RomanNumVal(input[--i]));
+                }
+                else
+                {
+                    numVal = numVal + RomanNumVal(input[i]);
+                }
+            }
+            return numVal;
+        }
+    }
+
 
     //
     //
