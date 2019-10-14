@@ -137,6 +137,12 @@ namespace Test_Environment
             Console.WriteLine(MyWork.Counter(value));
         } // method for VowelCount
 
+        /*
+         * SmallestNonSum test = new SmallestNonSum { };
+            int[] arr = { 1, 2, 3, 10 };
+            Console.WriteLine(test.FindValue(arr, test.KnownSums(arr)));
+         */
+
         //
         //
         //##### STORAGE OF METHODS #####
@@ -313,6 +319,69 @@ namespace Test_Environment
             return numVal;
         }
     }
+
+
+    class SmallestNonSum
+    {
+        public List<int> KnownSums(int[] given)
+        {
+            List<int> storedValues = new List<int>();
+            for (int i = 0; i < given.Length - 1; i++)
+            {
+                for (int i2 = i + 1; i2 < given.Length; i2++)
+                {
+                    storedValues.Add(given[i] + given[i2]);
+                }
+            }
+            storedValues.Sort();
+            return storedValues;
+        }//does not find all subset sums. This method doesn't work well.
+        public int FindValue(int[] given, List<int> known)
+        {
+            int max = given.Sum();
+            int startNum = given[0];
+            while (startNum <= max)
+            {
+                bool found = false;
+                for (int i = 0; i < given.Length; i++)
+                {
+                    if (startNum == given[i] || known.Contains(startNum))
+                    {
+                        found = true;
+                    }
+                }
+                if (found == false)
+                {
+                    return startNum;
+                }
+                startNum++;
+            }
+            return max + 1;
+        }
+
+    } // Given a sorted array, find the smallest positive integer that is not the sum of the subset of the array.
+
+
+    /*class BigNum // handle interation beyond the 2bil int maxvalue. how?? long max = 9,223,372,036,854,775,807 // 9223372036854775807
+    {
+
+        public string Value { get; set; }
+
+        public BigNum (string input)
+        {
+            this.Value = input;
+        }
+        public BigNum()
+        {
+            this.Value = "0";
+        }
+        public BigNum Add(BigNum input)
+        {
+            for()
+        }
+
+    }
+    */
 
 
     //
